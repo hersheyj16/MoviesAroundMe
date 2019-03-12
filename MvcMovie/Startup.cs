@@ -33,6 +33,8 @@ namespace MvcMovie
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddDbContext<MvcMovieContext>(options =>
+       options.UseSqlite(Configuration.GetConnectionString("MovieContext")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
