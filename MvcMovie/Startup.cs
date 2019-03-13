@@ -1,4 +1,4 @@
-﻿using MvcMovie.Models;
+using MvcMovie.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -37,6 +37,9 @@ namespace MvcMovie
        options.UseSqlite(Configuration.GetConnectionString("MovieContext")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddDbContext<MvcTheatreContext>(options =>
+       options.UseSqlite(Configuration.GetConnectionString("MovieContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
