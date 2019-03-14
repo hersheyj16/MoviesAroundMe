@@ -53,24 +53,16 @@
     </tbody>
 </table>
 
-@{
+
+
+<h1>View bag stuff</h1>
+<p>
+    @foreach (var item in ViewBag.Theaters)
+    {
+    <p>
+        @item.Theatre.lat     @item.Theatre.lon
+    </p>
 }
 
-@foreach (var item in Model)
-{
-    List<MvcMovie.Models.Show> newList = new List<MvcMovie.Models.Show> ();
-    if (newList.Contains(item))
-    {
-        <h1>
-            @Html.DisplayFor(modelItem => item.Theatre.name)
-        </h1>
-    }
-    else
-    {
-        <p>
-            @Html.DisplayFor(modelItem => item.Theatre.name)
-        </p>
 
-        newList.Add(item);
-    }
-}
+    <p />

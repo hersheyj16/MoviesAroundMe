@@ -23,8 +23,24 @@ namespace MvcMovie.Controllers
         {
             //ViewData["MovieId"] = new SelectList(s => s.Theatre);
 
+            //var mvcShowContext = _context.Show.Include(s => s.Movie).Include(s => s.Theatre);
             var mvcShowContext = _context.Show.Include(s => s.Movie).Include(s => s.Theatre);
-            return View(await mvcShowContext.ToListAsync());
+            var theater = await mvcShowContext.ToListAsync();
+            var toShow = new List<MvcMovie.Models.Show>();
+
+            List<string> allTheaters = new List<string>();
+            for (int i = 0; i < theater.Count; i++) { 
+                if (allTheaters.Contains(theater[i].Theatre.name)) {
+                    //theater.Remove(theater[i]);
+                }
+                else {
+                    allTheaters.Add(theater[i].Theatre.name);
+                    toShow.Add(theater[i]);
+                }
+            }
+
+            ViewBag.Theaters = toShow;
+            return View(theater);
         }
 
         // GET: Shows/Details/5
