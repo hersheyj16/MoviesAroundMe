@@ -21,6 +21,8 @@ namespace MvcMovie.Controllers
         // GET: Shows
         public async Task<IActionResult> Index()
         {
+            //ViewData["MovieId"] = new SelectList(s => s.Theatre);
+
             var mvcShowContext = _context.Show.Include(s => s.Movie).Include(s => s.Theatre);
             return View(await mvcShowContext.ToListAsync());
         }
