@@ -48,7 +48,7 @@ namespace MvcMovie.Controllers
         // GET: Shows/Create
         public IActionResult Create()
         {
-            ViewData["MovieId"] = new SelectList(_context.Set<Movie>(), "Id", "Genre");
+            ViewData["MovieId"] = new SelectList(_context.Set<Movie>(), "Id", "Title");
             ViewData["TheatreId"] = new SelectList(_context.Set<Theatre>(), "Id", "name");
             return View();
         }

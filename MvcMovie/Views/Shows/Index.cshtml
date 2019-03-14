@@ -1,10 +1,10 @@
 @model IEnumerable<MvcMovie.Models.Show>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "All Shows";
 }
 
-<h2>Index</h2>
+<h2>All Shows</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -31,7 +31,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Movie.Genre)
+                @Html.DisplayFor(modelItem => item.Movie.Title)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Theatre.name)
